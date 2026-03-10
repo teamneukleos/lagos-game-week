@@ -21,30 +21,30 @@ export default function ExperienceGallery() {
 
         {/* Column 1 */}
         <div className="flex flex-col gap-4">
-          <GalleryImage src="/images/gallery-1.png" height="h-32 md:h-42" />
-          <GalleryImage src="/images/gallery-2.png" height="h-32 md:h-42" />
-          <GalleryImage src="/images/gallery-3.png" height="h-52 md:h-90" />
+          <GalleryImage src="/images/gallery-1.png" height="h-40 md:h-[172px]" />
+          <GalleryImage src="/images/gallery-2.png" height="h-40 md:h-[172px]" />
+          <GalleryImage src="/images/gallery-3.png" height="h-56 md:h-[360px]" />
         </div>
 
         {/* Column 2 */}
         <div className="flex flex-col gap-4">
-          <GalleryImage src="/images/gallery-4.png" height="h-52 md:h-90" />
-          <GalleryImage src="/images/gallery-5.png" height="h-32 md:h-42" />
-          <GalleryImage src="/images/gallery-6.png" height="h-32 md:h-42" />
+          <GalleryImage src="/images/gallery-4.png" height="h-56 md:h-[360px]" />
+          <GalleryImage src="/images/gallery-5.png" height="h-40 md:h-[172px]" />
+          <GalleryImage src="/images/gallery-6.png" height="h-40 md:h-[172px]" />
         </div>
 
         {/* Column 3 */}
         <div className="flex flex-col gap-4">
-          <GalleryImage src="/images/gallery-7.png" height="h-32 md:h-42" />
-          <GalleryImage src="/images/gallery-8.png" height="h-32 md:h-42" />
-          <GalleryImage src="/images/gallery-9.png" height="h-52 md:h-90" />
+          <GalleryImage src="/images/gallery-7.png" height="h-40 md:h-[172px]" />
+          <GalleryImage src="/images/gallery-8.png" height="h-40 md:h-[172px]" />
+          <GalleryImage src="/images/gallery-9.png" height="h-56 md:h-[360px]" />
         </div>
 
         {/* Column 4 */}
         <div className="flex flex-col gap-4">
-          <GalleryImage src="/images/gallery-10.png" height="h-52 md:h-90" />
-          <GalleryImage src="/images/gallery-11.png" height="h-32 md:h-42" />
-          <GalleryImage src="/images/gallery-12.png" height="h-32 md:h-42" />
+          <GalleryImage src="/images/gallery-10.png" height="h-56 md:h-[360px]" />
+          <GalleryImage src="/images/gallery-11.png" height="h-40 md:h-[172px]" />
+          <GalleryImage src="/images/gallery-12.png" height="h-40 md:h-[172px]" />
         </div>
 
       </div>

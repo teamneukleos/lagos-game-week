@@ -3,6 +3,12 @@
 import { useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
+import { Host_Grotesk } from "next/font/google";
+
+const hostGrotesk = Host_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 const sponsors = [
   { name: "Ustu Games", image: "/partners/ustu-games.png" },
@@ -121,8 +127,7 @@ export default function Partners2025() {
 
         {/* STATS CARDS */}
         <div className="relative z-10 mt-12 translate-y-6">
-          <div className="grid md:grid-cols-3 gap-4 max-w-[1050px] mx-auto">
-
+          <div className={`${hostGrotesk.className} grid md:grid-cols-3 gap-4 max-w-[1050px] mx-auto`}>
             <div className="py-14 px-7 rounded-[12px] text-black bg-[#FFAF4D]">
               <h3 className="text-2xl md:text-2xl lg:text-4xl font-bold mb-2">
                 600,000+
@@ -143,7 +148,7 @@ export default function Partners2025() {
 
             <div className="py-14 px-7 rounded-[12px] text-black bg-[#1EA7D7]">
               <h3 className="text-2xl md:text-2xl uppercase lg:text-4xl font-bold mb-2">
-                100 M+
+                100M+
               </h3>
               <p className="text-sm">
                 Mobile internet users in Nigeria

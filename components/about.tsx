@@ -1,15 +1,50 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Host_Grotesk } from "next/font/google";
+
+const hostGrotesk = Host_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 const slides = [
-  "Lagos Games Week is an annual trade fair for video games",
-
-  "Get Access to Africa's Growing dev community, expanding audience of players and young Consumer Market",
-
-  "Trade and Collaborate: From XD and co-dev to indie game showcases, publishing, education, and policy. Connect with stakeholders along the entire value chain, enabling collaboration, deal-flow, and co-production.",
-
-  "Shape policy, attract investment, and position Video Games as a serious economic and cultural sector with high youth employment potential",
+  {
+    text: (
+      <>
+        We exist to provide a pathway for
+the growth and development of the 
+African video games ecosystem 
+for the global marketplace 
+      </>
+    ),
+    bg: "/images/slide-bg-1.webp",
+  },
+  {
+    heading: "Conference",
+    text: (
+      <>
+       Insightful talks and Panel sessions with 
+       leading voices in video games, culture, 
+       storytelling, trade and investment
+      </>
+    ),
+    bg: "/images/slide-bg-2.webp",
+  },
+  {
+    heading: "Exhibition",
+    text: (
+      <>
+        A vibrant showcase of games, tech, art, 
+        and innovation from across Africa and 
+        the global markets. Featuring global 
+        game showcases, Indie Games, 
+        Showcase, VR experiences, playtesting 
+        and game activations
+      </>
+    ),
+    bg: "/images/slide-bg-3.webp",
+  },
 ];
 
 export default function About() {
@@ -24,19 +59,18 @@ export default function About() {
   }, []);
 
   return (
-    <section className="text-white sticky top-0 overflow-hidden z-[1]">
+    <section id="about" className="text-white sticky top-0 overflow-hidden z-[1]">
 
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-        style={{
-          backgroundImage:
-            "url('/images/kucheza-event.png')",
-        }}
+         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 z-0"
+         style={{
+         backgroundImage: `url(${slides[current].bg})`,
+         }}
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/80 z-0" />
+      <div className="absolute inset-0 bg-black/90 z-0" />
 
       {/* Content */}
       <div className="relative z-10">
@@ -49,24 +83,35 @@ export default function About() {
 
               <div className="relative w-full flex items-center justify-center">
 
-                {slides.map((text, index) => (
-                  <h2
-                    key={index}
-                    className={`absolute text-balance font-display text-center transition-all duration-700
-                    ${
-                      index === current
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-3 pointer-events-none"
-                    }
-                    ${
-                      index === 2
-                        ? "text-2xl md:text-3xl lg:text-4xl w-[min(100%,36ch)]"
-                        : "text-3xl md:text-4xl lg:text-5xl w-[min(100%,30ch)]"
-                    }`}
-                  >
-                    {text}
-                  </h2>
-                ))}
+                 {slides.map((slide, index) => (
+  <div
+    key={index}
+    className={`absolute flex flex-col items-center gap-4 transition-all duration-700
+    ${
+      index === current
+        ? "opacity-100 translate-y-0"
+        : "opacity-0 translate-y-3 pointer-events-none"
+    }`}
+  >
+
+    {slide.heading && (
+<h3 className="font-display text-xl md:text-2xl lg:text-[48px] font-semibold text-center">        {slide.heading}
+      </h3>
+    )}
+
+   <h2
+  className={`${hostGrotesk.className} text-balance text-center 
+      ${
+        index === 2
+          ? "text-lg md:text-2xl lg:text-[40px] w-[min(100%,36ch)]"
+          : "text-lg md:text-2xl lg:text-[40px] w-[min(100%,30ch)]"
+      }`}
+    >
+      {slide.text}
+    </h2>
+
+  </div>
+))}
 
               </div>
 
