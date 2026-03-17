@@ -5,7 +5,7 @@ const CONTACT_LINK = "#";
 export default function ContactSection() {
   return (
     <section
-      className="bg-black text-white h-[100vh] bg-[url('/images/kucheza-event.png')] bg-cover bg-center relative z-20"
+      className="bg-black text-white bg-[url('/images/kucheza-event.png')] bg-cover bg-center relative z-20"
     >
       <div id="contact-us" className="max-w-7xl mx-auto px-4 py-24 md:py-32">
         

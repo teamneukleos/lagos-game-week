@@ -1,180 +1,136 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import AutoScroll from "embla-carousel-auto-scroll";
 import AnimatedLink from "@/components/ui/AnimatedLink";
 
 const PITCH_STAGE_LINK = "#";
 const INDIE_SHOWCASE_LINK = "#";
 const VOLUNTEER_LINK = "#";
 
+const cards = [
+  {
+    bg: "#FFAF4D",
+    img: "/images/spot-1.png",
+    alt: "Pitch Stage",
+    title: "Pitch Stage",
+    desc: "Structured live presentation to pitch games to a panel of experts.",
+    cta: "Register",
+    href: PITCH_STAGE_LINK,
+  },
+  {
+    bg: "#FF64C9",
+    img: "/images/spot-2.png",
+    alt: "Indie Game Showcase",
+    title: "Indie Game Showcase",
+    desc: "Shortlisted studios and communities can showcase their games at no cost",
+    cta: "Register your studio",
+    href: INDIE_SHOWCASE_LINK,
+  },
+  {
+    bg: "#00ABF0",
+    img: "/images/spot-3.png",
+    alt: "Volunteers",
+    title: "Volunteers and Exhibitors",
+    desc: "Interested in being a volunteer or an exhibitor at Lagos Games Week?",
+    cta: "Contact Us",
+    href: VOLUNTEER_LINK,
+  },
+  {
+    bg: "#E799FF",
+    img: "/images/spot-4.png",
+    alt: "Game Jam",
+    title: "Game Jam",
+    desc: "A hands-on game development challenge designed for learning, collaboration, and creativity.",
+    cta: "Contact Us",
+    href: VOLUNTEER_LINK,
+  },
+  {
+    bg: "#D5D1D1",
+    img: "/images/spot-5.png",
+    alt: "Next Gen Submit",
+    title: "Next Gen Submit",
+    desc: "A platform designed to inspire and equip the next generation of game and tech creators.",
+    cta: "Contact Us",
+    href: INDIE_SHOWCASE_LINK,
+  },
+];
+
 export default function SecureSpotSection() {
-    return (
-        <section className="relative bg-white z-20">
-            <div className="max-w-7xl mx-auto px-4 py-20 relative z-10">
+  const [isMobile, setIsMobile] = useState(false);
 
-                <h2 className="w-[min(100%,15ch)] font-display text-black text-4xl md:text-5xl font-medium mb-12">
-                    Secure Your Spot Sign Up
-                </h2>
+  // detect mobile screen
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
-                <ul className="flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
+  const autoScroll = AutoScroll({
+    stopOnInteraction: false,
+    speed: 1,
+    playOnInit: isMobile, // ✅ auto play ONLY on mobile
+  });
 
-                    {/* CARD 1 */}
-                    <li className="min-w-[260px] sm:min-w-[300px] md:min-w-[340px] lg:min-w-[380px] snap-start">
-                        <div className="bg-[#FFAF4D] rounded-xl p-4 h-full">
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start" },
+    [autoScroll]
+  );
 
-                            <img
-                                src="/images/spot-1.png"
-                                width={368}
-                                height={368}
-                                className="rounded-sm mb-5 w-full object-cover"
-                                alt="Pitch Stage"
-                            />
+  return (
+    <section className="relative bg-white z-20">
+      <div className="max-w-7xl mx-auto px-4 py-20 relative z-10">
 
-                            <h3 className="text-sm md:text-base mb-px text-black font-semibold font-display">
-                                Pitch Stage
-                            </h3>
+        <h2 className="w-[min(100%,15ch)] font-display text-black text-4xl md:text-5xl font-medium mb-12">
+          Secure Your Spot Sign Up
+        </h2>
 
-                            <p className="text-base md:text-lg mb-6 text-black">
-                                Structured live presentation to pitch games to a panel of experts.
-                            </p>
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex gap-4 md:gap-6 px-4 md:px-6">
+            {cards.map((card, i) => (
+              <div
+                key={i}
+                onMouseEnter={() =>
+                  !isMobile && emblaApi?.plugins()?.autoScroll?.play()
+                }
+                onMouseLeave={() =>
+                  !isMobile && emblaApi?.plugins()?.autoScroll?.stop()
+                }
+                className="flex-[0_0_260px] sm:flex-[0_0_300px] md:flex-[0_0_340px] lg:flex-[0_0_380px] min-w-0"
+              >
+                <div
+                  className="rounded-xl p-4 h-full"
+                  style={{ backgroundColor: card.bg }}
+                >
+                  <img
+                    src={card.img}
+                    width={368}
+                    height={368}
+                    className="rounded-sm mb-5 w-full object-cover"
+                    alt={card.alt}
+                  />
+                  <h3 className="text-sm md:text-base mb-px text-black font-semibold font-display">
+                    {card.title}
+                  </h3>
+                  <p className="text-xs md:text-sm mb-6 text-black">
+                    {card.desc}
+                  </p>
+                  <AnimatedLink
+                    href={card.href}
+                    className="!bg-black text-white hover:bg-black/80 group-hover:bg-black/80"
+                    target="_blank"
+                  >
+                    {card.cta}
+                  </AnimatedLink>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-                            <AnimatedLink
-                                href={PITCH_STAGE_LINK}
-                                className="!bg-black text-white hover:bg-black/80 group-hover:bg-black/80"
-                                target="_blank"
-                            >
-                                Register
-                            </AnimatedLink>
-
-                        </div>
-                    </li>
-
-                    {/* CARD 2 */}
-                    <li className="min-w-[260px] sm:min-w-[300px] md:min-w-[340px] lg:min-w-[380px] snap-start">
-                        <div className="bg-[#FF64C9] rounded-xl p-4 h-full">
-
-                            <img
-                                src="/images/spot-2.png"
-                                width={368}
-                                height={368}
-                                className="rounded-sm mb-5 w-full object-cover"
-                                alt="Indie Game Showcase"
-                            />
-
-                            <h3 className="text-sm md:text-base mb-px text-black font-semibold font-display">
-                                Indie Game Showcase
-                            </h3>
-
-                            <p className="text-base md:text-lg mb-6 text-black">
-                                Shortlisted studios and communities can showcase their games at no cost
-                            </p>
-
-                            <AnimatedLink
-                                href={INDIE_SHOWCASE_LINK}
-                                className="!bg-black text-white hover:bg-black/80 group-hover:bg-black/80"
-                                target="_blank"
-                            >
-                                Register your studio
-                            </AnimatedLink>
-
-                        </div>
-                    </li>
-
-                    {/* CARD 3 */}
-                    <li className="min-w-[260px] sm:min-w-[300px] md:min-w-[340px] lg:min-w-[380px] snap-start">
-                        <div className="bg-[#00ABF0] rounded-xl p-4 h-full">
-
-                            <img
-                                src="/images/spot-3.png"
-                                width={368}
-                                height={368}
-                                className="rounded-sm mb-5 w-full object-cover"
-                                alt="Volunteers"
-                            />
-
-                            <h3 className="text-sm md:text-base mb-px text-black font-semibold  font-display">
-                                Volunteers and Exhibitors
-                            </h3>
-
-                            <p className="text-base md:text-lg mb-6 text-black">
-                                Interested in being a volunteer or an exhibitor at Lagos Games Week?
-                            </p>
-
-                            <AnimatedLink
-                                href={VOLUNTEER_LINK}
-                                className="!bg-black text-white hover:bg-black/80 group-hover:bg-black/80"
-                                target="_blank"
-                            >
-                                Contact Us
-                            </AnimatedLink>
-
-                        </div>
-                    </li>
-
-                    {/* CARD 4 */}
-                    <li className="min-w-[260px] sm:min-w-[300px] md:min-w-[340px] lg:min-w-[380px] snap-start">
-                        <div className="bg-[#E799FF] rounded-xl p-4 h-full">
-
-                            <img
-                                src="/images/spot-4.png"
-                                width={368}
-                                height={368}
-                                className="rounded-sm mb-5 w-full object-cover"
-                                alt="Game Jam"
-                            />
-
-                            <h3 className="text-sm md:text-base mb-px text-black font-semibold  font-display">
-                                Game Jam
-                            </h3>
-
-                            <p className="text-base md:text-base mb-6 text-black">
-                                A hands-on game development challenge designed for learning,
-                                collaboration, and creativity.
-                            </p>
-
-                            <AnimatedLink
-                                href={VOLUNTEER_LINK}
-                                className="!bg-black text-white hover:bg-black/80 group-hover:bg-black/80"
-                                target="_blank"
-                            >
-                                Contact Us
-                            </AnimatedLink>
-
-                        </div>
-                    </li>
-
-                    {/* CARD 5 */}
-                    <li className="min-w-[260px] sm:min-w-[300px] md:min-w-[340px] lg:min-w-[380px] snap-start">
-                        <div className="bg-[#D5D1D1] rounded-xl p-4 h-full">
-
-                            <img
-                                src="/images/spot-5.png"
-                                width={368}
-                                height={368}
-                                className="rounded-sm mb-5 w-full object-cover"
-                                alt="Next Gen Submit"
-                            />
-
-                            <h3 className="text-sm md:text-base mb-px text-black font-semibold  font-display">
-                                Next Gen Submit
-                            </h3>
-
-                            <p className="text-base md:text-lg mb-6 text-black">
-                                A platform designed to inspire and equip the next generation of
-                                game and tech creators.
-                            </p>
-
-                            <AnimatedLink
-                                href={INDIE_SHOWCASE_LINK}
-                                className="!bg-black text-white hover:bg-black/80 group-hover:bg-black/80"
-                                target="_blank"
-                            >
-                                Contact Us
-                            </AnimatedLink>
-
-                        </div>
-                    </li>
-
-                </ul>
-
-            </div>
-        </section>
-    );
+      </div>
+    </section>
+  );
 }

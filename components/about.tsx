@@ -1,46 +1,43 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Host_Grotesk } from "next/font/google";
-
-const hostGrotesk = Host_Grotesk({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
 
 const slides = [
   {
     text: (
       <>
-        We exist to provide a pathway for
-the growth and development of the 
-African video games ecosystem 
-for the global marketplace 
+        Lagos Games Week is an annual trade fair for video games
       </>
     ),
     bg: "/images/slide-bg-1.webp",
   },
   {
-    heading: "Conference",
     text: (
       <>
-       Insightful talks and Panel sessions with 
-       leading voices in video games, culture, 
-       storytelling, trade and investment
+        Get Access to Africa's Growing dev community,
+        expanding audience of players and young
+        Consumer Market
       </>
     ),
     bg: "/images/slide-bg-2.webp",
   },
   {
-    heading: "Exhibition",
     text: (
       <>
-        A vibrant showcase of games, tech, art, 
-        and innovation from across Africa and 
-        the global markets. Featuring global 
-        game showcases, Indie Games, 
-        Showcase, VR experiences, playtesting 
-        and game activations
+        Trade and Collaborate: From XD and co-dev to indie
+        game showcases, publishing, education, and policy.
+        Connect with stakeholders along the entire value chain,
+        enabling collaboration, deal-flow, and co-production.
+      </>
+    ),
+    bg: "/images/slide-bg-3.webp",
+  },
+  {
+    text: (
+      <>
+        Shape policy, attract investment, and position
+        Video Games as a serious economic and cultural
+        sector with high youth employment potential
       </>
     ),
     bg: "/images/slide-bg-3.webp",
@@ -63,10 +60,8 @@ export default function About() {
 
       {/* Background Image */}
       <div
-         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 z-0"
-         style={{
-         backgroundImage: `url(${slides[current].bg})`,
-         }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 z-0"
+        style={{ backgroundImage: `url(${slides[current].bg})` }}
       />
 
       {/* Dark overlay */}
@@ -80,69 +75,53 @@ export default function About() {
 
             {/* Centered Text */}
             <div className="flex-1 flex items-center justify-center w-full">
-
               <div className="relative w-full flex items-center justify-center">
-
-                 {slides.map((slide, index) => (
-  <div
-    key={index}
-    className={`absolute flex flex-col items-center gap-4 transition-all duration-700
-    ${
-      index === current
-        ? "opacity-100 translate-y-0"
-        : "opacity-0 translate-y-3 pointer-events-none"
-    }`}
-  >
-
-    {slide.heading && (
-<h3 className="font-display text-xl md:text-2xl lg:text-[48px] font-semibold text-center">        {slide.heading}
-      </h3>
-    )}
-
-   <h2
-  className={`${hostGrotesk.className} text-balance text-center 
-      ${
-        index === 2
-          ? "text-lg md:text-2xl lg:text-[40px] w-[min(100%,36ch)]"
-          : "text-lg md:text-2xl lg:text-[40px] w-[min(100%,30ch)]"
-      }`}
-    >
-      {slide.text}
-    </h2>
-
-  </div>
-))}
-
+                {slides.map((slide, index) => (
+                  <div
+                    key={index}
+                    className={`absolute flex flex-col items-center gap-4 transition-all duration-700
+                      ${index === current
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-3 pointer-events-none"
+                      }`}
+                  >
+                    <h2
+                      className={`text-balance text-center
+                        ${index === 2
+                          ? "text-lg md:text-2xl lg:text-[40px] w-[min(100%,36ch)]"
+                          : "text-lg md:text-2xl lg:text-[40px] w-[min(100%,30ch)]"
+                        }`}
+                    >
+                      {slide.text}
+                    </h2>
+                  </div>
+                ))}
               </div>
-
             </div>
 
             {/* Indicators */}
-            <div className="flex items-center gap-2 md:gap-3">
-
+            <div className="flex items-center gap-2">
               {slides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrent(index)}
-                  className="rounded-sm transition-all duration-500"
+                  className="rounded-full transition-all duration-500"
                 >
                   <svg
-                    className="w-8 h-2 md:w-[72px] md:h-4"
-                    viewBox="0 0 72 16"
+                    className="w-6 h-[6px] md:w-10 md:h-2"
+                    viewBox="0 0 40 8"
                   >
                     <rect
-                      width="72"
-                      height="16"
+                      width="40"
+                      height="8"
                       fill={current === index ? "#D9D9D9" : "#313131"}
                     />
                   </svg>
                 </button>
               ))}
-
             </div>
 
           </div>
-
         </div>
       </div>
     </section>

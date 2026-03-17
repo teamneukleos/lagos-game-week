@@ -4,15 +4,20 @@ import Image from "next/image";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 
 const routes = [
-  { label: "About Us", url: "/#about" },
-  { label: "Speakers", url: "/#speakers" },
-  { label: "Schedule", url: "/#schedule" },
-  { label: "Event details", url: "/#event-details" },
-  { label: "Partners", url: "/#partners" },
-  { label: "FAQs", url: "/#faq" },
+  { label: "About Us", id: "about" },
+  { label: "Speakers", id: "speakers" },
+  { label: "Schedule", id: "schedule" },
+  { label: "Event details", id: "event-details" },
+  { label: "Partners", id: "partners" },
+  { label: "FAQs", id: "faq" },
 ];
 
 export default function Navbar() {
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <header className="fixed top-0 left-0 w-full py-4 z-50 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,12 +39,12 @@ export default function Navbar() {
             <ul className="text-white flex items-center">
               {routes.map((route) => (
                 <li key={route.label}>
-                  <a
-                    href={route.url}
-                    className="px-6 py-4 text-sm transition-colors"
+                  <button
+                    onClick={() => scrollTo(route.id)}
+                    className="px-6 py-4 text-sm transition-colors text-white cursor-pointer"
                   >
                     {route.label}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -47,9 +52,7 @@ export default function Navbar() {
 
           {/* Ticket Button */}
           <div className="group inline-flex scale-90 sm:scale-100">
-            <AnimatedButton
-              id="eventbrite-widget-modal-trigger-1343945108999--top"
-            >
+            <AnimatedButton id="eventbrite-widget-modal-trigger-1343945108999--top">
               Get your tickets
             </AnimatedButton>
           </div>

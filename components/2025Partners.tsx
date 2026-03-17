@@ -32,7 +32,7 @@ export default function Partners2025() {
 
   return (
     <section className="bg-white pb-0 overflow-visible">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
 
         {/* SPONSOR SLIDER */}
         <div className="relative pt-20 pb-12">
@@ -46,32 +46,10 @@ export default function Partners2025() {
             {/* Slider Wrapper */}
             <div className="relative flex-1 min-w-0">
 
-              {/* LEFT BUTTON */}
-              <button
-                onClick={scrollPrev}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center"
-              >
-                <svg
-                  className="w-[28px] h-[100px] md:w-[41px] md:h-[165px]"
-                  viewBox="0 0 41 165"
-                >
-                  <rect width="41" height="165" fill="#FFAF4D" />
-                  <text
-                    x="50%"
-                    y="50%"
-                    dominantBaseline="middle"
-                    textAnchor="middle"
-                    fill="white"
-                    fontSize="18"
-                    fontWeight="bold"
-                  >
-                    ‹
-                  </text>
-                </svg>
-              </button>
+              
 
               {/* EMBLA */}
-              <div className="overflow-hidden px-8 md:px-14" ref={emblaRef}>
+              <div className="overflow-hidden " ref={emblaRef}>
                 <div className="flex items-center">
 
                   {sponsors.map((sp) => (
@@ -90,36 +68,7 @@ export default function Partners2025() {
                 </div>
               </div>
 
-              {/* RIGHT BUTTON */}
-              <button
-                onClick={scrollNext}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center"
-              >
-                <svg
-                  className="w-[28px] h-[100px] md:w-[41px] md:h-[165px]"
-                  viewBox="0 0 41 165"
-                >
-                  <rect
-                    x="0.5"
-                    y="0.5"
-                    width="40"
-                    height="164"
-                    fill="white"
-                    stroke="#D9D9D9"
-                  />
-                  <text
-                    x="50%"
-                    y="50%"
-                    dominantBaseline="middle"
-                    textAnchor="middle"
-                    fill="black"
-                    fontSize="18"
-                    fontWeight="bold"
-                  >
-                    ›
-                  </text>
-                </svg>
-              </button>
+              
 
             </div>
           </div>
