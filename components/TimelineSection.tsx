@@ -297,7 +297,7 @@ const years: Record<string, YearData> = {
     days: [
       {
         title: "Day 1",
-        date: "18th June 2024 Thursday",
+        date: "2nd May 2024",
         venue: "Xbox, Glover Road, Ikoyi",
         theme: "BUILD COMMUNITY",
         schedule: [
@@ -319,12 +319,12 @@ const years: Record<string, YearData> = {
       },
       {
         title: "Day 2",
-        date: "19th June 2024 Friday",
+        date: "3rd May 2024",
         venue: "National Theatre, Lagos",
         theme: "PLAY WITHOUT BORDERS",
         schedule: [
           { time: "08:00 - 10:00", title: "Welcome Address" },
-          { time: "10:30 - 12:30", title: "Panel Session: Building Ecosystem" },
+          { time: "10:30 - 12:30", title: "Panel Session: The Future of African Gaming: Challenges or Opportunities" },
           {
             time: "13:00",
             title: "Creating games merging African and Europeans creators, the Awalé Game Jam wrap up",

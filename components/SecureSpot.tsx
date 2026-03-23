@@ -49,8 +49,8 @@ const cards = [
   {
     bg: "#D5D1D1",
     img: "/images/spot-5.png",
-    alt: "Next Gen Submit",
-    title: "Next Gen Submit",
+    alt: "Next Gen Summit",
+    title: "Next Gen Summit",
     desc: "A platform designed to inspire and equip the next generation of game and tech creators.",
     cta: "Contact Us",
     href: INDIE_SHOWCASE_LINK,
