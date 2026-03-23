@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { Host_Grotesk } from "next/font/google";
@@ -22,91 +22,95 @@ const sponsors = [
 ];
 
 export default function Partners2025() {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
+  const [emblaRef] = useEmblaCarousel(
     { loop: true, align: "start" },
     [AutoScroll({ stopOnInteraction: false })]
   );
 
-  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
-  const scrollNext = () => emblaApi && emblaApi.scrollNext();
-
   return (
-    <section className="bg-white pb-0 overflow-visible">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+    <section className="bg-white relative z-[1]">
+      <div className="py-20">
+        <div className="max-w-[1440px] mx-auto">
 
-        {/* SPONSOR SLIDER */}
-        <div className="relative pt-20 pb-12">
-          <div className="flex items-center gap-6 md:gap-10">
+          <div className="relative">
 
-            {/* Title */}
-            <h3 className="text-2xl md:text-3xl text-black font-semibold whitespace-nowrap leading-tight">
-              2025 <br /> Partners
-            </h3>
+            {/* LEFT LABEL (same style as PartnerList) */}
+            <div className="absolute left-0 top-0 bottom-0 z-[1]">
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 bg-white h-full flex items-center px-8">
+                <h3 className="text-2xl md:text-4xl text-black font-semibold text-center">
+                  2025 <br /> Partners
+                </h3>
+              </div>
+            </div>
 
-            {/* Slider Wrapper */}
-            <div className="relative flex-1 min-w-0">
+            {/* CAROUSEL */}
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex -ml-4 md:-ml-32">
 
-              
-
-              {/* EMBLA */}
-              <div className="overflow-hidden " ref={emblaRef}>
-                <div className="flex items-center">
-
-                  {sponsors.map((sp) => (
-                    <div
-                      key={sp.name}
-                      className="flex-[0_0_100%] sm:flex-[0_0_33%] lg:flex-[0_0_20%] flex items-center justify-center px-3 md:px-6"
-                    >
-                      <img
+                {sponsors.map((sp, i) => (
+                  <div
+                    key={i}
+                    className="
+                      pl-4 md:pl-32
+                      flex-[0_0_100%]
+                      min-[225px]:flex-[0_0_33%]
+                      md:flex-[0_0_33%]
+                      lg:flex-[0_0_25%]
+                      xl:flex-[0_0_20%]
+                      cursor-grab
+                    "
+                  >
+                    <div className="relative w-full aspect-square">
+                      <Image
                         src={sp.image}
                         alt={sp.name}
-                        className="h-12 md:h-28 object-contain max-w-full"
+                        fill
+                        className="object-contain"
                       />
                     </div>
-                  ))}
+                  </div>
+                ))}
 
-                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* STATS (unchanged) */}
+          <div className="relative z-10 mt-12 translate-y-6">
+            <div className={`${hostGrotesk.className} grid md:grid-cols-3 gap-4 max-w-[1050px] mx-auto`}>
+              
+              <div className="py-14 px-7 rounded-[12px] text-black bg-[#FFAF4D]">
+                <h3 className="text-2xl md:text-2xl lg:text-4xl font-bold mb-2">
+                  600,000+
+                </h3>
+                <p className="text-sm">
+                  Tech and creative graduates annually in Nigeria
+                </p>
               </div>
 
-              
+              <div className="py-14 px-7 rounded-[12px] text-black bg-[#FF64C9]">
+                <h3 className="text-2xl md:text-2xl lg:text-4xl font-bold mb-2">
+                  15% YOY
+                </h3>
+                <p className="text-sm">
+                  Game development workforce growth
+                </p>
+              </div>
+
+              <div className="py-14 px-7 rounded-[12px] text-black bg-[#1EA7D7]">
+                <h3 className="text-2xl md:text-2xl uppercase lg:text-4xl font-bold mb-2">
+                  100M+
+                </h3>
+                <p className="text-sm">
+                  Mobile internet users in Nigeria
+                </p>
+              </div>
 
             </div>
           </div>
+
         </div>
-
-        {/* STATS CARDS */}
-        <div className="relative z-10 mt-12 translate-y-6">
-          <div className={`${hostGrotesk.className} grid md:grid-cols-3 gap-4 max-w-[1050px] mx-auto`}>
-            <div className="py-14 px-7 rounded-[12px] text-black bg-[#FFAF4D]">
-              <h3 className="text-2xl md:text-2xl lg:text-4xl font-bold mb-2">
-                600,000+
-              </h3>
-              <p className="text-sm">
-                Tech and creative graduates annually in Nigeria
-              </p>
-            </div>
-
-            <div className="py-14 px-7 rounded-[12px] text-black bg-[#FF64C9]">
-              <h3 className="text-2xl md:text-2xl lg:text-4xl font-bold mb-2">
-                15% YOY
-              </h3>
-              <p className="text-sm">
-                Game development workforce growth
-              </p>
-            </div>
-
-            <div className="py-14 px-7 rounded-[12px] text-black bg-[#1EA7D7]">
-              <h3 className="text-2xl md:text-2xl uppercase lg:text-4xl font-bold mb-2">
-                100M+
-              </h3>
-              <p className="text-sm">
-                Mobile internet users in Nigeria
-              </p>
-            </div>
-
-          </div>
-        </div>
-
       </div>
     </section>
   );
