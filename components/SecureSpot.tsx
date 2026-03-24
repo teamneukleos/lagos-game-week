@@ -5,9 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import AnimatedLink from "@/components/ui/AnimatedLink";
 
-const PITCH_STAGE_LINK = "#";
-const INDIE_SHOWCASE_LINK = "#";
-const VOLUNTEER_LINK = "#";
+
 
 const cards = [
   {
@@ -17,7 +15,7 @@ const cards = [
     title: "Pitch Stage",
     desc: "Structured live presentation to pitch games to a panel of experts.",
     cta: "Register",
-    href: PITCH_STAGE_LINK,
+    href: "https://forms.gle/xg1zRJtczEDHVcak7",
   },
   {
     bg: "#FF64C9",
@@ -26,7 +24,7 @@ const cards = [
     title: "Indie Game Showcase",
     desc: "Shortlisted studios and communities can showcase their games at no cost",
     cta: "Register your studio",
-    href: INDIE_SHOWCASE_LINK,
+    href: " https://forms.gle/XvgH3gPPaiaFsMf28",
   },
   {
     bg: "#00ABF0",
@@ -35,7 +33,7 @@ const cards = [
     title: "Volunteers and Exhibitors",
     desc: "Interested in being a volunteer or an exhibitor at Lagos Games Week?",
     cta: "Contact Us",
-    href: VOLUNTEER_LINK,
+    href: "https://forms.gle/GoQyuXWJWPPPm8eCA",
   },
   {
     bg: "#E799FF",
@@ -44,7 +42,7 @@ const cards = [
     title: "Game Jam",
     desc: "A hands-on game development challenge designed for learning, collaboration, and creativity.",
     cta: "Contact Us",
-    href: VOLUNTEER_LINK,
+    href: "https://forms.gle/xg1zRJtczEDHVcak7",
   },
   {
     bg: "#D5D1D1",
@@ -52,8 +50,8 @@ const cards = [
     alt: "Next Gen Summit",
     title: "Next Gen Summit",
     desc: "A platform designed to inspire and equip the next generation of game and tech creators.",
-    cta: "Contact Us",
-    href: INDIE_SHOWCASE_LINK,
+    cta: "Find out More",
+    href: "/Next-Gen.pdf",
   },
 ];
 

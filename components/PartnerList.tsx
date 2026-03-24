@@ -24,7 +24,7 @@ export default function PartnerList({ partners }: { partners: Partner[] }) {
       {/* Left Label */}
       <div className="absolute left-0 top-0 bottom-0 z-[1]">
         <div className="absolute left-0 top-1/2 -translate-y-1/2 bg-white h-full flex items-center px-8">
-          <h3 className="text-2xl md:text-4xl text-black text-center">Partners</h3>
+          <h3 className="text-2xl md:text-4xl text-black text-center">Industry <br />Partners</h3>
         </div>
       </div>
 
