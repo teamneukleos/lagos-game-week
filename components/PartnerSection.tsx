@@ -1,13 +1,18 @@
 import PartnerList from "@/components/PartnerList";
 
 const partners = [
-  { name: "Xbox", image: "/partners/x-box.png" },
-  { name: "Maliyo games", image: "/partners/maliyo-games.png" },
+  { name: "Kucheza", image: "/partners/kucheza.png" },
+  { name: "Gamr", image: "/partners/gamr.png" },
   { name: "Game-evo", image: "/partners/Game-evo.png" },
-  { name: "Monument Valley", image: "/partners/monument-valley.png" },
-  { name: "Ustu games", image: "/partners/ustu-games.png" },
-  { name: "Goethe Institut", image: "/partners/goethe-institut.png" },
-  { name: "Institut Francais", image: "/partners/institut-francais.png" },
+  { name: "10n8e", image: "/partners/10n8e.png" },
+  { name: "Africa Comicade", image: "/partners/africa-comicade.png" },
+  { name: "Deluxe Studios", image: "/partners/deluxe-studios.png" },
+  { name: "Dimension11", image: "/partners/dimension11.png" },
+  { name: "Image&time", image: "/partners/image&time.png" },
+  { name: "xon10dr", image: "/partners/xon10dr.png" },
+  { name: "Maliyo games", image: "/partners/maliyo-games.png" },
+  { name: "Mobiele", image: "/partners/mobiele.png" },
+  { name: "Neukleos", image: "/partners/neukleos.png" },
 ];
 
 export default function PartnersSection() {

@@ -4,11 +4,7 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    text: (
-      <>
-        Lagos Games Week is an annual trade fair for video games
-      </>
-    ),
+    text: <>Lagos Games Week is an annual trade fair for video games</>,
     bg: "/images/slide-bg-1.webp",
   },
   {
@@ -46,26 +42,36 @@ const slides = [
 
 export default function About() {
   const [current, setCurrent] = useState(0);
+  const [prev, setPrev] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 = next, -1 = prev
 
   useEffect(() => {
     const interval = setInterval(() => {
+      setDirection(1);
+      setPrev(current);
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 7000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [current]);
+
+  const handleClick = (index: number) => {
+    if (index === current) return;
+
+    setDirection(index > current ? 1 : -1);
+    setPrev(current);
+    setCurrent(index);
+  };
 
   return (
     <section id="about" className="text-white sticky top-0 overflow-hidden z-[1]">
 
-      {/* Background Image */}
+      {/* Background */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 z-0"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 scale-105 brightness-75"
         style={{ backgroundImage: `url(${slides[current].bg})` }}
       />
-
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/90 z-0" />
+      <div className="absolute inset-0 bg-black/40 md:bg-black/40" />
 
       {/* Content */}
       <div className="relative z-10">
@@ -73,38 +79,49 @@ export default function About() {
 
           <div className="h-svh flex flex-col items-center justify-between py-20">
 
-            {/* Centered Text */}
-            <div className="flex-1 flex items-center justify-center w-full">
+            {/* TEXT SLIDER */}
+            <div className="flex-1 flex items-center justify-center w-full overflow-hidden">
               <div className="relative w-full flex items-center justify-center">
-                {slides.map((slide, index) => (
-                  <div
-                    key={index}
-                    className={`absolute flex flex-col items-center gap-4 transition-all duration-700
-                      ${index === current
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-3 pointer-events-none"
-                      }`}
-                  >
-                    <h2
-                      className={`text-balance text-center
-                        ${index === 2
-                          ? "text-lg md:text-2xl lg:text-[40px] w-[min(100%,36ch)]"
-                          : "text-lg md:text-2xl lg:text-[40px] w-[min(100%,30ch)]"
-                        }`}
+
+                {slides.map((slide, index) => {
+                  let position = "translate-x-full opacity-0";
+
+                  if (index === current) {
+                    position = "translate-x-0 opacity-100";
+                  } else if (index === prev) {
+                    position =
+                      direction === 1
+                        ? "-translate-x-full opacity-0"
+                        : "translate-x-full opacity-0";
+                  }
+
+                  return (
+                    <div
+                      key={index}
+                      className={`absolute flex flex-col items-center gap-4 transition-all duration-700 ease-in-out ${position}`}
                     >
-                      {slide.text}
-                    </h2>
-                  </div>
-                ))}
+                      <h2
+                        className={`text-balance text-center
+                          ${index === 2
+                            ? "text-lg md:text-2xl lg:text-[40px] w-[min(100%,36ch)]"
+                            : "text-lg md:text-2xl lg:text-[40px] w-[min(100%,30ch)]"
+                          }`}
+                      >
+                        {slide.text}
+                      </h2>
+                    </div>
+                  );
+                })}
+
               </div>
             </div>
 
-            {/* Indicators */}
+            {/* INDICATORS */}
             <div className="flex items-center gap-2">
               {slides.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrent(index)}
+                  onClick={() => handleClick(index)}
                   className="rounded-full transition-all duration-500"
                 >
                   <svg

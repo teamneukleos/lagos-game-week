@@ -11,14 +11,14 @@ const hostGrotesk = Host_Grotesk({
 });
 
 const sponsors = [
-  { name: "Ustu Games", image: "/partners/ustu-games.png" },
-  { name: "Monument Valley", image: "/partners/monument-valley.png" },
+  { name: "Ambassade", image: "/partners/ambassade.png" },
+  { name: "Next Gen Summit", image: "/partners/next-gen-summit.png" },
+  { name: "Global Game Jam", image: "/partners/global-game-jam.png" },
   { name: "Goethe Institut", image: "/partners/goethe-institut.png" },
   { name: "Digital school house", image: "/partners/digital-schoolhouse.png" },
-  { name: "Game Evo", image: "/partners/Game-evo.png" },
+  { name: "Endless", image: "/partners/endless.png" },
   { name: "X-box", image: "/partners/x-box.png" },
   { name: "Institut Francais", image: "/partners/institut-francais.png" },
-  { name: "Maliyo games", image: "/partners/maliyo-games.png" },
 ];
 
 export default function Partners2025() {
@@ -28,25 +28,24 @@ export default function Partners2025() {
   );
 
   return (
-    <section className="bg-white relative z-[1]">
-      <div className="py-20">
+    <section className="bg-white pb-0 overflow-visible">
+      <div className="pt-20 pb-0">
         <div className="max-w-[1440px] mx-auto">
 
+          {/* Carousel */}
           <div className="relative">
 
-            {/* LEFT LABEL (same style as PartnerList) */}
+            {/* Left Label */}
             <div className="absolute left-0 top-0 bottom-0 z-[1]">
               <div className="absolute left-0 top-1/2 -translate-y-1/2 bg-white h-full flex items-center px-8">
-                <h3 className="text-2xl md:text-4xl text-black font-semibold text-center">
-                  2025 <br /> Partners
+                <h3 className="text-2xl md:text-4xl text-black text-center">
+                  2026 <br /> Sponsors
                 </h3>
               </div>
             </div>
 
-            {/* CAROUSEL */}
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex -ml-4 md:-ml-32">
-
                 {sponsors.map((sp, i) => (
                   <div
                     key={i}
@@ -70,43 +69,37 @@ export default function Partners2025() {
                     </div>
                   </div>
                 ))}
-
               </div>
             </div>
-
           </div>
 
-          {/* STATS (unchanged) */}
-          <div className="relative z-10 mt-12 translate-y-6">
+          {/* STATS CARDS — overlaying next section */}
+          <div className="relative z-10 mt-12 translate-y-8 px-4">
             <div className={`${hostGrotesk.className} grid md:grid-cols-3 gap-4 max-w-[1050px] mx-auto`}>
-              
               <div className="py-14 px-7 rounded-[12px] text-black bg-[#FFAF4D]">
-                <h3 className="text-2xl md:text-2xl lg:text-4xl font-bold mb-2">
+                <h3 className="text-2xl lg:text-4xl font-bold mb-2">
                   600,000+
                 </h3>
                 <p className="text-sm">
                   Tech and creative graduates annually in Nigeria
                 </p>
               </div>
-
               <div className="py-14 px-7 rounded-[12px] text-black bg-[#FF64C9]">
-                <h3 className="text-2xl md:text-2xl lg:text-4xl font-bold mb-2">
+                <h3 className="text-2xl lg:text-4xl font-bold mb-2">
                   15% YOY
                 </h3>
                 <p className="text-sm">
                   Game development workforce growth
                 </p>
               </div>
-
               <div className="py-14 px-7 rounded-[12px] text-black bg-[#1EA7D7]">
-                <h3 className="text-2xl md:text-2xl uppercase lg:text-4xl font-bold mb-2">
+                <h3 className="text-2xl uppercase lg:text-4xl font-bold mb-2">
                   100M+
                 </h3>
                 <p className="text-sm">
                   Mobile internet users in Nigeria
                 </p>
               </div>
-
             </div>
           </div>
 
