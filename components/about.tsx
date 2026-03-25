@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
   {
@@ -42,77 +43,74 @@ const slides = [
 
 export default function About() {
   const [current, setCurrent] = useState(0);
-  const [prev, setPrev] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 = next, -1 = prev
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setDirection(1);
-      setPrev(current);
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 7000);
 
     return () => clearInterval(interval);
-  }, [current]);
+  }, []);
 
   const handleClick = (index: number) => {
     if (index === current) return;
-
     setDirection(index > current ? 1 : -1);
-    setPrev(current);
     setCurrent(index);
   };
 
   return (
-    <section id="about" className="text-white sticky top-0 overflow-hidden z-[1]">
+    <section id="about" className="text-white sticky top-0 overflow-hidden z-[1] h-svh">
 
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 scale-105 brightness-75"
-        style={{ backgroundImage: `url(${slides[current].bg})` }}
-      />
-      <div className="absolute inset-0 bg-black/40 md:bg-black/40" />
+      {/* Background slides */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <AnimatePresence mode="popLayout" custom={direction}>
+          <motion.div
+            key={slides[current].bg + current}
+            custom={direction}
+            initial={{ x: direction > 0 ? "100%" : "-100%", opacity: 1 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: direction > 0 ? "-100%" : "100%", opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${slides[current].bg})` }}
+          />
+        </AnimatePresence>
+      </div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60 -z-10" />
 
       {/* Content */}
-      <div className="relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <div className="h-svh flex flex-col items-center justify-between py-20">
+      <div className="relative z-10 h-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+          <div className="h-full flex flex-col items-center justify-between py-20">
 
             {/* TEXT SLIDER */}
             <div className="flex-1 flex items-center justify-center w-full overflow-hidden">
               <div className="relative w-full flex items-center justify-center">
-
-                {slides.map((slide, index) => {
-                  let position = "translate-x-full opacity-0";
-
-                  if (index === current) {
-                    position = "translate-x-0 opacity-100";
-                  } else if (index === prev) {
-                    position =
-                      direction === 1
-                        ? "-translate-x-full opacity-0"
-                        : "translate-x-full opacity-0";
-                  }
-
-                  return (
-                    <div
-                      key={index}
-                      className={`absolute flex flex-col items-center gap-4 transition-all duration-700 ease-in-out ${position}`}
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={current}
+                    custom={direction}
+                    initial={{ x: direction > 0 ? 60 : -60, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: direction > 0 ? -60 : 60, opacity: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="flex flex-col items-center gap-4"
+                  >
+                    <h2
+                      className={`text-balance text-center
+                        ${current === 2
+                          ? "text-lg md:text-2xl lg:text-[40px] w-[min(100%,36ch)]"
+                          : "text-lg md:text-2xl lg:text-[40px] w-[min(100%,30ch)]"
+                        }`}
                     >
-                      <h2
-                        className={`text-balance text-center
-                          ${index === 2
-                            ? "text-lg md:text-2xl lg:text-[40px] w-[min(100%,36ch)]"
-                            : "text-lg md:text-2xl lg:text-[40px] w-[min(100%,30ch)]"
-                          }`}
-                      >
-                        {slide.text}
-                      </h2>
-                    </div>
-                  );
-                })}
-
+                      {slides[current].text}
+                    </h2>
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
 
@@ -124,10 +122,7 @@ export default function About() {
                   onClick={() => handleClick(index)}
                   className="rounded-full transition-all duration-500"
                 >
-                  <svg
-                    className="w-6 h-[6px] md:w-10 md:h-2"
-                    viewBox="0 0 40 8"
-                  >
+                  <svg className="w-6 h-[6px] md:w-10 md:h-2" viewBox="0 0 40 8">
                     <rect
                       width="40"
                       height="8"
