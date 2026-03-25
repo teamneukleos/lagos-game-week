@@ -1,6 +1,5 @@
 import AnimatedLink from "@/components/ui/AnimatedLink";
 
-const CONTACT_LINK = "#";
 
 export default function ContactSection() {
   return (
@@ -18,7 +17,7 @@ export default function ContactSection() {
             </h2>
 
             <AnimatedLink
-              href={CONTACT_LINK}
+              href="https://forms.gle/xg1zRJtczEDHVcak7"
               className="!bg-[#FFAF4D] !text-black hover:bg-[#FFAF4D]/80 group-hover:bg-[#FFAF4D]/80"
             >
               Contact Us

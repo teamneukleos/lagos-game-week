@@ -28,7 +28,7 @@ const speakers2026 = [
     name: "Marianne Ournac",
     role: "Technical Cooperation Officer",
     org: "French Embassy, Nigeria",
-    img: "/speakers/marienne-ournac.png",
+    img: "/speakers/marianne-ournac.png",
   },
   {
     name: "Soukayna Ennaji",
@@ -186,28 +186,11 @@ const years: Record<string, YearData> = {
         venue: "Xbox, Glover Road, Ikoyi",
         theme: "BUILD COMMUNITY",
         schedule: [
-          { time: "08:00 - 10:00", title: "Welcome Address" },
-          {
-            time: "10:30 - 12:30",
-            title: "Panel Session: Building Ecosystem",
-            speakers: "Hugo Obi"
+          { time: "-", 
+            title: "",
+            speakers: "-" 
           },
-
-          {
-            time: "13:00",
-            title: "Creating games merging African and Europeans creators, the Awalé Game Jam wrap up",
-            speakers: "Teddy Kosoko"
-          },
-          {
-            time: "15:00 - 16:30",
-            title: "Pitch Stage Finals sponsored by Maliyo games",
-            speakers: "Bukola Akingbade"
-          },
-          {
-            time: "17:00 - 18:00",
-            title: "Pitch Stage Finals sponsored by Maliyo games",
-            speakers: "Evans Kiragu"
-          },
+          
         ],
       },
       {
@@ -216,80 +199,101 @@ const years: Record<string, YearData> = {
         venue: "National Theatre, Lagos",
         theme: "PLAY WITHOUT BORDERS",
         schedule: [
-          { time: "08:30:00", title: "Arrivals + Registration" },
-          { time: "09:15:00", title: "Setting the Scene + ice breaker" },
+          { time: "08:30:00", 
+            title: "Arrivals + Registration",
+            speakers: "Getting settled in venue" },
+          { time: "09:15:00", 
+            title: "Setting the Scene + ice breaker",
+            speakers: "Setting the Scene + ice breaker" },
           {
             time: "09:20:00",
             title: "Message from our Sponsor",
+            speakers: "Opening Address: French Embassy in Nigeria"
           },
           {
             time: "09:30:00",
             title: "Welcome Address",
+            speakers: "Welcome to Lagos Games Week by FMACTCE"
           },
           {
             time: "09:40:00",
             title: "Keynote Address",
-
+            speakers: "Finding El Dorado as an industry"
           },
           {
             time: "10:15:00",
-            title: "Next Gen Summit Panel session: Career pathway panel discussion"
+            title: "Next Gen Summit Panel session",
+            speakers: "Career pathway panel discussion"
           },
           {
             time: "10:45:00",
-            title: "Talks: How Games Can Transform a Nation: The Kokku Story"
+            title: "Talks",
+            speakers: "How Games Can Transform a Nation: The Kokku Story"
           },
           {
             time: "11:05:00",
-            title: "Q&A - 10 mins"
+            title: "Q&A - 10 mins",
+            speakers: "Q&A - 10 mins"
           },
           {
             time: "11:20:00",
-            title: "Panel Session: Finding El Dorado"
+            title: "Panel Session",
+            speakers: "Finding El Dorado"
           },
           {
             time:"12:00:00",
-            title: "Talks: The Hidden Opportunity: How XD Can Build Africa’s Multi-Million-Dollar Game Studios"
+            title: "Talks",
+            speakers: "The Hidden Opportunity: How XD Can Build Africa’s Multi-Million-Dollar Game Studios"
           },
           {
             time: "12:30:00",
-            title: "Q&A - 10 mins"
+            title: "Q&A - 10 mins",
+            speakers: "Q&A - 10 mins"
           },
           {
             time: "12:45:00",
-            title: "Break"
+            title: "Break",
+            speakers: "Break"
           },
           {
             time: "13:30:00",
-            title: "Panel Session: Level Up: How Creators Can Turn Passion into Profit"
+            title: "Panel Session ",
+            speakers: "Level Up: How Creators Can Turn Passion into Profit"
           },
           {
             time: "14:10:00",
-            title: "Talks: The Hidden Economy of Play: What Verve Has Learned About Nigeria’s Gaming Consumers"
+            title: "Talks",
+            speakers: "The Hidden Economy of Play: What Verve Has Learned About Nigeria’s Gaming Consumers"
           },
           {
             time: "14:25:00",
-            title: "Fireside chats: From Stage to Screen to Studio: The Power of Diverse Experiences"
+            title: "Fireside chats",
+            speakers: "From Stage to Screen to Studio: The Power of Diverse Experiences"
           },
           {
             time: "14:55:00",
-            title: "Panel session: TBC"
+            title: "Panel session",
+            speakers: "TBC"
           },
           {
             time: "15:25:00",
-            title: "Next Gen Summit: Arrivals"
+            title: "Next Gen Summit",
+            speakers: "Arrivals"
           },
           {
             time: "15:30:00",
-            title: "Next Gen Summit: Final Address and Awards"
+            title: "Next Gen Summit",
+            speakers: "Final Address and Awards"
           },
           {
             time: "15:45:00",
-            title: "Talk and conferencing ends"
+            title: "Talk and conferencing ends",
+            speakers: "Talk and conferencing ends"
           },
           {
             time: "17:00:00",
-            title: "Exhibition Area Closes"
+            title: "Exhibition Area Closes",
+            speakers: "Exhibition Area Closes"
           }
         ],
       },
@@ -340,7 +344,7 @@ const years: Record<string, YearData> = {
         title: "Day 2",
         date: "20th June 2025 Friday",
         venue: "Balmoral Convention Center, Lagos",
-        theme: "Talks and Conferencing ",
+        theme: "TALKS AND CONFERENCING ",
         schedule: [
           { time: "09:30:00", 
             title: "Welcome Address",
@@ -424,7 +428,7 @@ const years: Record<string, YearData> = {
         title: "Day 1",
         date: "2nd May 2024 Thursday",
         venue: "Landmark Event Center, Lagos",
-        theme: "B2B networking and cocktail",
+        theme: "B2B NETWORKING AND COCKTAIL",
         schedule: [
           { time: "08:00 - 10:00", title: "Welcome Address" },
           { time: "10:30 - 12:30", title: "Panel Session: Building Ecosystem" },
@@ -446,7 +450,7 @@ const years: Record<string, YearData> = {
         title: "Day 2",
         date: "3rd May 2024 Friday",
         venue: "Landmark Event Center, Lagos",
-        theme: "Talks and Conferencing ",
+        theme: "TALKS AND CONFERENCING",
         schedule: [
           { time: "09:15:00", 
             title: "Keynote Address: The Future of African Gaming: Challenges or Opportunities",
@@ -511,7 +515,7 @@ const years: Record<string, YearData> = {
         title: "Day 3",
         date: "4th May 2024 Saturday",
         venue: "xxx",
-        theme: "The Xhodus Way - Gamr X3",
+        theme: "The XHODUS WAY - GAMR X3",
         schedule: [
           { time: "Morning",
             title: "Gamr X",

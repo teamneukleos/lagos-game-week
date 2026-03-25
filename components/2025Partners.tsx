@@ -15,10 +15,10 @@ const sponsors = [
   { name: "Next Gen Summit", image: "/partners/next-gen-summit.png" },
   { name: "Global Game Jam", image: "/partners/global-game-jam.png" },
   { name: "Goethe Institut", image: "/partners/goethe-institut.png" },
-  { name: "Digital school house", image: "/partners/digital-schoolhouse.png" },
   { name: "Endless", image: "/partners/endless.png" },
   { name: "X-box", image: "/partners/x-box.png" },
   { name: "Institut Francais", image: "/partners/institut-francais.png" },
+  { name: "Games-connect", image: "/partners/games-connect.png"}
 ];
 
 export default function Partners2025() {
