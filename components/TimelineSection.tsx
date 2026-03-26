@@ -77,7 +77,31 @@ const speakers2026 = [
     name: "Thiago De Freitas",
     role: "Group CEO",
     org: "OV Entertainment",
-    img: "/speakers/thiago-freitas.png",
+    img: "/speakers/thiago-de-freitas.png",
+  },
+  {
+    name: "Chris Diafouka",
+    role: "Gaming Marketing Specialist",
+    org: "Redbull",
+    img: "/speakers/chris-diafouka.png",
+  },
+  {
+    name: "Mickael Newton",
+    role: "Social Impact Manager",
+    org: "Ubisoft",
+    img: "/speakers/mickael-newton.png",
+  },
+  {
+    name: "H.M. Hannatu Musawa ",
+    role: "Honourable Minister",
+    org: "Art, Culture, Tourism and Creative Economy",
+    img: "/speakers/hannatu-musawa.png",
+  },
+  {
+    name: "Matthew Kreutter",
+    role: "Director, Learning and Engagement",
+    org: "Games for Change",
+    img: "/speakers/matthew-kreutter.png",
   },
 ];
 
@@ -196,7 +220,7 @@ const years: Record<string, YearData> = {
         date: "19th June 2026 Friday",
         venue: "National Theatre, Lagos",
         theme: "PLAY WITHOUT BORDERS",
-        img: "/images/day-2026.png",
+        img: "/images/day-2026-2.png",
         schedule: [
           { time: "08:30:00", title: "Arrivals + Registration", speakers: "Getting settled in venue" },
           { time: "09:15:00", title: "Setting the Scene + ice breaker", speakers: "Setting the Scene + ice breaker" },
@@ -245,7 +269,7 @@ const years: Record<string, YearData> = {
         date: "20th June 2025 Friday",
         venue: "Balmoral Convention Center, Lagos",
         theme: "TALKS AND CONFERENCING",
-        img: "/images/day-2025.png",
+        img: "/images/day-2025-2.png",
         schedule: [
           { time: "09:30:00", title: "Welcome Address", speakers: "Bukola Akingbade, Currator, Lagos Games Week" },
           { time: "10:30:00", title: "Message from our Sponsor", speakers: "Opening Address: French Embassy in Nigeria" },
@@ -264,7 +288,7 @@ const years: Record<string, YearData> = {
         date: "21st June 2025 Saturday",
         venue: "xxx",
         theme: "ESPORT FINALS",
-        img: "/images/day-2025.png",
+        img: "/images/day-2025-3.png",
         schedule: [
           { time: "Morning", title: "Gamr X", speakers: "Season 4" },
           { time: "Afternoon", title: "Gamr X", speakers: "Season 4" },
@@ -295,7 +319,7 @@ const years: Record<string, YearData> = {
         date: "3rd May 2024 Friday",
         venue: "Landmark Event Center, Lagos",
         theme: "TALKS AND CONFERENCING",
-        img: "/images/day-2024.png",
+        img: "/images/day-2024-2.png",
         schedule: [
           { time: "09:15:00", title: "Keynote Address: The Future of African Gaming: Challenges or Opportunities", speakers: "Hugo Obi, Founder, Maliyo Games" },
           { time: "09:30:00", title: "Panel Session: The Future of African Gaming: Challenges or Opportunities", speakers: "Hugo Obi (Maliyo Games), Tolu Olowofoyeku (Kugali Media), David Olamide (Dimension11), Oscar Michael (AfricaComicade), Moderator: Oluseye Soyede-Johnson" },
@@ -316,7 +340,7 @@ const years: Record<string, YearData> = {
         date: "4th May 2024 Saturday",
         venue: "xxx",
         theme: "The XHODUS WAY - GAMR X3",
-        img: "/images/day-2024.png",
+        img: "/images/day-2024-3.png",
         schedule: [
           { time: "Morning", title: "Gamr X", speakers: "Season 3" },
           { time: "Afternoon", title: "Gamr X", speakers: "Season 3" },

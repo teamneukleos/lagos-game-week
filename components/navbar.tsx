@@ -52,13 +52,18 @@ export default function Navbar() {
 
           {/* Ticket Button */}
           <div className="group inline-flex scale-90 sm:scale-100">
+
+            <a href="https://www.eventbrite.com/e/lagos-games-week-26-tickets-1985732289733?aff=oddtdtcreator"
+            target="_blank"
+            rel="noopener noreferrer">
             <AnimatedButton id="eventbrite-widget-modal-trigger-1343945108999--top">
               Get your tickets
             </AnimatedButton>
-          </div>
-
+          </a>
         </div>
+
       </div>
-    </header>
+    </div>
+    </header >
   );
 }
