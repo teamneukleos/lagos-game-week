@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
@@ -26,40 +26,10 @@ type YearData = {
 
 const speakers2026 = [
   {
-    name: "Marianne Ournac",
-    role: "Technical Cooperation Officer",
-    org: "French Embassy, Nigeria",
-    img: "/speakers/marianne-ournac.png",
-  },
-  {
-    name: "Soukayna Ennaji",
-    role: "Business Dev. Manager",
-    org: "Virtuos Games",
-    img: "/speakers/soukayna-ennaji.png",
-  },
-  {
     name: "Hugo Obi",
     role: "Founder",
     org: "Maliyo Games",
     img: "/speakers/hugo-obi.png",
-  },
-  {
-    name: "Teddy Kossoko",
-    role: "Founder",
-    org: "Masseka and Gara Store",
-    img: "/speakers/teddy-kossoko.png",
-  },
-  {
-    name: "Evans Kiragu",
-    role: "CEO and Founder",
-    org: "Mekan Games",
-    img: "/speakers/evans-kiragu.png",
-  },
-  {
-    name: "Temi Afolabi",
-    role: "Xbox Global Expansion",
-    org: "(Africa & Middle East)",
-    img: "/speakers/temi-afolabi.png",
   },
   {
     name: "Bukola Akingbade",
@@ -80,18 +50,6 @@ const speakers2026 = [
     img: "/speakers/thiago-de-freitas.png",
   },
   {
-    name: "Chris Diafouka",
-    role: "Gaming Marketing Specialist",
-    org: "Redbull",
-    img: "/speakers/chris-diafouka.png",
-  },
-  {
-    name: "Mickael Newton",
-    role: "Social Impact Manager",
-    org: "Ubisoft",
-    img: "/speakers/mickael-newton.png",
-  },
-  {
     name: "H.M. Hannatu Musawa ",
     role: "Honourable Minister",
     org: "Art, Culture, Tourism and Creative Economy",
@@ -102,6 +60,24 @@ const speakers2026 = [
     role: "Director, Learning and Engagement",
     org: "Games for Change",
     img: "/speakers/matthew-kreutter.png",
+  },
+  {
+    name: "Amy Duncan",
+    role: "Programmes director",
+    org: "Games for Change Africa",
+    img: "/speakers/amy-duncan.png",
+  },
+  {
+    name: "Justin Bourque",
+    role: "Learning programs lead",
+    org: "",
+    img: "/speakers/justin-bourque.png",
+  },
+  {
+    name: "Christophe Pecot",
+    role: "Cultural Attaché",
+    org: "French Embassy in Nigeria",
+    img: "/speakers/christophe-pecot.png",
   },
 ];
 
@@ -365,7 +341,16 @@ export default function TimelineSection() {
     [AutoScroll({ stopOnInteraction: false })]
   );
 
+  // Refs for each day card so we can scroll back to them on close
+  const dayRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   const yearData = years[activeYear];
+
+  const handleHideSchedule = (i: number) => {
+    // Scroll the card into view first, then collapse after a short delay
+    dayRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(() => setOpenDay(null), 300);
+  };
 
   return (
     <section id="timeline-section" className="bg-white py-16 relative z-10">
@@ -412,7 +397,7 @@ export default function TimelineSection() {
         </div>
 
         {/* SPEAKERS */}
-        <div id="speakers" className="mt-16">
+        <div id="speakers" className="mt-16 scroll-mt-20">
           <div className="overflow-hidden w-full" ref={emblaRef}>
             <div className="flex">
               {yearData.speakers.map((speaker, i) => (
@@ -436,11 +421,15 @@ export default function TimelineSection() {
         </div>
 
         {/* DAY CARDS */}
-        <div id="schedule" className="mt-12 flex flex-col gap-6">
+        <div id="schedule" className="mt-12 flex flex-col gap-6 scroll-mt-20">
           {yearData.days.map((day, i) => {
             const open = openDay === i;
             return (
-              <div key={i} className="relative group px-2">
+              <div
+                key={i}
+                ref={(el) => { dayRefs.current[i] = el; }}
+                className="relative group px-2 scroll-mt-20"
+              >
                 <div className="relative p-[10px]">
 
                   {/* Static Grey Border */}
@@ -454,7 +443,7 @@ export default function TimelineSection() {
 
                   <div className="bg-white flex flex-col md:flex-row items-start md:items-center px-8 py-10 md:py-12 gap-8">
 
-                    {/* Day image — replaces grey circle */}
+                    {/* Day image */}
                     <div className="w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden flex-shrink-0">
                       <img
                         src={day.img}
@@ -510,7 +499,7 @@ export default function TimelineSection() {
                     </div>
                     <div className="flex justify-end pr-5 md:pr-8 pb-6 pt-4">
                       <button
-                        onClick={() => setOpenDay(open ? null : i)}
+                        onClick={() => open ? handleHideSchedule(i) : setOpenDay(i)}
                         className="border px-4 py-2 text-xs text-black tracking-widest"
                       >
                         {open ? "HIDE SCHEDULE" : "SHOW SCHEDULE"}

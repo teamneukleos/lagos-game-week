@@ -17,7 +17,7 @@ const partners = [
 
 export default function PartnersSection() {
   return (
-    <section id="partners" className="bg-white relative z-[1]">
+    <section id="" className="bg-white relative z-[1]">
       <div className="py-20">
         <div className="max-w-[1440px] mx-auto">
           <PartnerList partners={partners} />

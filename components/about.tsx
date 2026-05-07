@@ -39,6 +39,10 @@ const slides = [
     ),
     bg: "/images/slide-bg-3.webp",
   },
+  {
+    
+    bg: "/images/slide-bg-4.webp",
+  }
 ];
 
 export default function About() {

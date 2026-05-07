@@ -5,8 +5,6 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 import AnimatedLink from "@/components/ui/AnimatedLink";
 
-
-
 const cards = [
   {
     bg: "#FFAF4D",
@@ -58,7 +56,6 @@ const cards = [
 export default function SecureSpotSection() {
   const [isMobile, setIsMobile] = useState(false);
 
-  // detect mobile screen
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
     check();
@@ -69,7 +66,7 @@ export default function SecureSpotSection() {
   const autoScroll = AutoScroll({
     stopOnInteraction: false,
     speed: 1,
-    playOnInit: isMobile, // ✅ auto play ONLY on mobile
+    playOnInit: isMobile,
   });
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -78,7 +75,7 @@ export default function SecureSpotSection() {
   );
 
   return (
-    <section className="relative bg-white z-20">
+    <section id="event-details" className="relative bg-white z-20">
       <div className="max-w-7xl mx-auto px-4 py-20 relative z-10">
 
         <h2 className="w-[min(100%,15ch)] font-display text-black text-4xl md:text-5xl font-medium mb-12">
@@ -90,12 +87,6 @@ export default function SecureSpotSection() {
             {cards.map((card, i) => (
               <div
                 key={i}
-                onMouseEnter={() =>
-                  !isMobile && emblaApi?.plugins()?.autoScroll?.play()
-                }
-                onMouseLeave={() =>
-                  !isMobile && emblaApi?.plugins()?.autoScroll?.stop()
-                }
                 className="flex-[0_0_260px] sm:flex-[0_0_300px] md:flex-[0_0_340px] lg:flex-[0_0_380px] min-w-0"
               >
                 <div
@@ -115,13 +106,18 @@ export default function SecureSpotSection() {
                   <p className="text-xs md:text-sm mb-6 text-black">
                     {card.desc}
                   </p>
-                  <AnimatedLink
-                    href={card.href}
-                    className="!bg-black text-white hover:bg-black/80 group-hover:bg-black/80"
-                    target="_blank"
+                  <span
+                    onMouseEnter={() => !isMobile && emblaApi?.plugins()?.autoScroll?.stop()}
+                    onMouseLeave={() => !isMobile && emblaApi?.plugins()?.autoScroll?.play()}
                   >
-                    {card.cta}
-                  </AnimatedLink>
+                    <AnimatedLink
+                      href={card.href}
+                      className="!bg-black text-white hover:bg-black/80 group-hover:bg-black/80"
+                      target="_blank"
+                    >
+                      {card.cta}
+                    </AnimatedLink>
+                  </span>
                 </div>
               </div>
             ))}

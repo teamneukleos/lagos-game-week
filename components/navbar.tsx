@@ -5,10 +5,10 @@ import AnimatedButton from "@/components/ui/AnimatedButton";
 
 const routes = [
   { label: "About Us", id: "about" },
+  { label: "Sponsors", id: "sponsors" },
   { label: "Speakers", id: "speakers" },
   { label: "Schedule", id: "schedule" },
   { label: "Event details", id: "event-details" },
-  { label: "Partners", id: "partners" },
   { label: "FAQs", id: "faq" },
 ];
 
