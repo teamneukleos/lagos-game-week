@@ -70,7 +70,7 @@ const speakers2026 = [
   {
     name: "Justin Bourque",
     role: "Learning programs lead",
-    org: "",
+    org: "Endless",
     img: "/speakers/justin-bourque.png",
   },
   {
