@@ -39,6 +39,9 @@ const slides = [
     ),
     bg: "/images/slide-bg-3.webp",
   },
+  {
+    bg: "/images/slide-bg-4.webp",
+  }
 ];
 
 export default function About() {
@@ -79,8 +82,10 @@ export default function About() {
         </AnimatePresence>
       </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60 -z-10" />
+      {/* Overlay — hidden on slide 5 (index 4) */}
+      {current !== 4 && (
+        <div className="absolute inset-0 bg-black/60 -z-10" />
+      )}
 
       {/* Content */}
       <div className="relative z-10 h-full">

@@ -28,7 +28,7 @@ export default function HeroSection() {
             <div className="my-6 text-base md:text-lg">
               <div className="grid grid-cols-[auto_1fr] gap-8 max-w-md mx-auto md:mx-0">
                 <p>Date</p>
-                <p>18 - 20 June 2026</p>
+                <p>18 - 19 June 2026</p>
 
                 <p>Venue</p>
                 <p>The National Theatre<br />

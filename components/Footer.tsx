@@ -1,13 +1,13 @@
 import Image from "next/image";
 
 const EVENT_START_DATE = new Date("2026-06-18");
-const EVENT_END_DATE = new Date("2026-06-20");
+const EVENT_END_DATE = new Date("2026-06-19");
 
 const SOCIAL_LINKS = [
-  { label: "Twitter", href: "#" },
-  { label: "Instagram", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Facebook", href: "#" },
+  { label: "Twitter", href: "https://twitter.com/lagos_gamesweek" },
+  { label: "Instagram", href: "https://www.instagram.com/lagos_gamesweek/" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/lagos-games-week/" },
+  { label: "Facebook", href: "https://www.facebook.com/lagosgamesweek" },
 ];
 
 export default function Footer() {

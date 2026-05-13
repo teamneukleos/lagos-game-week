@@ -18,7 +18,9 @@ const sponsors = [
   { name: "Endless", image: "/partners/endless.png" },
   { name: "X-box", image: "/partners/x-box.png" },
   { name: "Institut Francais", image: "/partners/institut-francais.png" },
-  { name: "Games-connect", image: "/partners/games-connect.png"}
+  { name: "Games-connect", image: "/partners/games-connect.png"},
+  { name: "Ony-black", image: "/partners/ony-black.png" },
+  { name: "games-for-change", image: "/partners/games-for-change.png" },
 ];
 
 export default function Partners2025() {
@@ -28,7 +30,7 @@ export default function Partners2025() {
   );
 
   return (
-    <section className="bg-white pb-0 overflow-visible">
+    <section id="sponsors" className="bg-white pb-0 overflow-visible">
       <div className="pt-20 pb-0">
         <div className="max-w-[1440px] mx-auto">
 
