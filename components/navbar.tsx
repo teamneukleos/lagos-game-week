@@ -13,10 +13,17 @@ const routes = [
 ];
 
 export default function Navbar() {
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+ const scrollTo = (id: string) => {
+  if (id === "about") {
+    const marker = document.getElementById("about-marker");
+    if (marker) {
+      marker.scrollIntoView({ behavior: "smooth" });
+    }
+    return;
+  }
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+};
 
   return (
     <header className="fixed top-0 left-0 w-full py-4 z-50 bg-black">
@@ -52,18 +59,19 @@ export default function Navbar() {
 
           {/* Ticket Button */}
           <div className="group inline-flex scale-90 sm:scale-100">
+            <a
+              href="https://www.eventbrite.com/e/lagos-games-week-26-tickets-1985732289733?aff=oddtdtcreator"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <AnimatedButton id="eventbrite-widget-modal-trigger-1343945108999--top">
+                Get your tickets
+              </AnimatedButton>
+            </a>
+          </div>
 
-            <a href="https://www.eventbrite.com/e/lagos-games-week-26-tickets-1985732289733?aff=oddtdtcreator"
-            target="_blank"
-            rel="noopener noreferrer">
-            <AnimatedButton id="eventbrite-widget-modal-trigger-1343945108999--top">
-              Get your tickets
-            </AnimatedButton>
-          </a>
         </div>
-
       </div>
-    </div>
-    </header >
+    </header>
   );
 }
