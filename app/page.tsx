@@ -18,6 +18,7 @@ export default function Home() {
 
       <main className="">
         <Partners2025 />
+        <div id="about-marker" />
         <About />
         <TimelineSection />
         <SecureSpotSection />
